@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  address: MyString
+  price: MyString
+  desc: MyString
+  map: MyString
+  toilet: 1
+  room: 1
+  feat_air_conditioner: false
+  feat_broadband: false
+  feat_hot_water: false
+  feat_garage: false
+  feat_heater: false
+
+two:
+  title: MyString
+  address: MyString
+  price: MyString
+  desc: MyString
+  map: MyString
+  toilet: 1
+  room: 1
+  feat_air_conditioner: false
+  feat_broadband: false
+  feat_hot_water: false
+  feat_garage: false
+  feat_heater: false

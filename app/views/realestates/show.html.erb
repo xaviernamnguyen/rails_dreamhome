@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @realestate.title %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <% if @realestate.image.attached? %>
+    <image width="400" src="<%=(url_for(@realestate.image))%>">
+  <% end %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @realestate.address %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @realestate.price %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @realestate.desc %>
+</p>
+
+<p>
+  <strong>Map:</strong>
+  <%= @realestate.map %>
+</p>
+
+<p>
+  <strong>Toilet:</strong>
+  <%= @realestate.toilet %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @realestate.room %>
+</p>
+
+<p>
+  <strong>Feat air conditioner:</strong>
+  <%= @realestate.feat_air_conditioner %>
+</p>
+
+<p>
+  <strong>Feat broadband:</strong>
+  <%= @realestate.feat_broadband %>
+</p>
+
+<p>
+  <strong>Feat hot water:</strong>
+  <%= @realestate.feat_hot_water %>
+</p>
+
+<p>
+  <strong>Feat garage:</strong>
+  <%= @realestate.feat_garage %>
+</p>
+
+<p>
+  <strong>Feat heater:</strong>
+  <%= @realestate.feat_heater %>
+</p>
+<% if @realestate.user == current_user %>
+  <%= link_to 'Edit', edit_realestate_path(@realestate), class:"btn btn-secondary" %>
+  <%= link_to 'Delete', @realestate, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<% end %>
+<%= link_to 'Back', realestates_path, class:"btn btn-dark" %>

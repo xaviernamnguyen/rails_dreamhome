@@ -1,0 +1,93 @@
+<%= form_with(model: realestate) do |form| %>
+  <% if realestate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(realestate.errors.count, "error") %> prohibited this realestate from being saved:</h2>
+
+      <ul>
+        <% realestate.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-2">
+    <%= form.label :title %>
+    <%= form.text_field :title,
+      class:"form-control", placeholder:"Post Title" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :"Image" %>
+    <%= form.file_field :image, placeholder: "Upload Image Here" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :address %>
+    <%= form.text_field :address,
+      class:"form-control", placeholder:"Address Details" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :price %>
+    <%= form.text_field :price,
+      class:"form-control", placeholder:"Price" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :"Description" %>
+    <%= form.text_field :desc,
+      class:"form-control", placeholder:"Description" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :map %>
+    <%= form.text_field :map,
+      class:"form-control", placeholder:"Map Link" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :toilet %>
+    <%= form.number_field :toilet,
+      class:"form-control"%>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :room %>
+    <%= form.number_field :room,
+      class:"form-control" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :"Air Conditioner" %>
+    <%= form.check_box :feat_air_conditioner %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :"Broadband" %>
+    <%= form.check_box :feat_broadband %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :"Hot Water" %>
+    <%= form.check_box :feat_hot_water %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :"Garage" %>
+    <%= form.check_box :feat_garage %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :"Heater" %>
+    <%= form.check_box :feat_heater %>
+  </div>
+  <div class="mb-2">
+    <%= form.number_field :user_id, id: :realestate_user_id,
+      class:"form-control", value: current_user.id, type: :hidden %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Submit", class:"btn btn-secondary" %>
+  </div>
+<% end %>
+<br/>

@@ -1,0 +1,39 @@
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-primary">
+    <tr>
+      <th>Title</th>
+      <th>Image</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Description</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @realestates.each do |realestate| %>
+      <tr>
+        <td><%= realestate.title.first(60) %></td>
+        <td><% if realestate.image.attached? %>
+    <image width="200" src="<%=(url_for(realestate.image))%>">
+  <% end %></td>
+        <td><%= realestate.address %></td>
+        <td><%= realestate.price %></td>
+        <td><%= realestate.desc.first(200) %></td>
+        
+        <td><%= link_to 'Details', realestate %></td>
+        <% if realestate.user == current_user %>
+          <td><%= link_to 'Edit', edit_realestate_path(realestate) %></td>
+          <td><%= link_to 'Delete', realestate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <td/><td/>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create a new post?', new_realestate_path %>
